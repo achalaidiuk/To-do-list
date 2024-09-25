@@ -1,6 +1,6 @@
 from django.test import TestCase
 from todolist_project.forms import TaskCreationForm, TagsCreationForm
-from todolist_project.models import Task, Tag
+from todolist_project.models import Tag
 
 
 class TaskCreationFormTest(TestCase):

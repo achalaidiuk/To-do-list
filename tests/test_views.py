@@ -16,7 +16,6 @@ class TaskViewsTest(TestCase):
                                         is_completed=False)
         self.task.tags.add(self.tag)
 
-
     def test_task_create_view(self):
         response = self.client.post(reverse("todolist_project:task-create"), {
             "content": "New Task",
@@ -26,7 +25,6 @@ class TaskViewsTest(TestCase):
         self.assertEqual(response.status_code,
                          302)
         self.assertTrue(Task.objects.filter(content="New Task").exists())
-
 
     def test_task_list_view(self):
         response = self.client.get(reverse("todolist_project:task-list"))

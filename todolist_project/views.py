@@ -24,6 +24,7 @@ def index(request: HttpRequest) -> HttpResponse:
 
     return render(request, "todolist_project/index.html", context)
 
+
 class TaskCreateView(LoginRequiredMixin, generic.CreateView):
     model = Task
     form_class = TaskCreationForm
@@ -59,6 +60,7 @@ class TagCreateView(LoginRequiredMixin, generic.CreateView):
 class TagListView(LoginRequiredMixin, generic.ListView):
     model = Tag
     paginate_by = 5
+
 
 class TagDetailView(LoginRequiredMixin, generic.DetailView):
     model = Tag
