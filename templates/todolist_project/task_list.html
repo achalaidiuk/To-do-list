@@ -36,9 +36,13 @@
                   {% endif %}
                 </td>
                 <td class="text-center">
-                  {% for tag in task.tag.all %}
-                    <span class="badge badge-secondary">{{ tag.name }}</span>
-                  {% endfor %}
+                  {% if task.tags.all %}
+                    {% for tag in task.tags.all %}
+                      <span class="badge badge-secondary">{{ tag.name }}</span>
+                    {% endfor %}
+                  {% else %}
+                    <span class="badge badge-light">No Tags</span>
+                  {% endif %}
                 </td>
                 <td class="text-center">
                   {% if user.is_authenticated %}
