@@ -17,11 +17,14 @@
       </li>
     </ul>
   </div>
-  <div class="sidebar-footer">
+  <div class="sidebar-footer mt-auto">
     {% if user.is_authenticated %}
-      <a class="sidebar-link" href="{% url 'logout' %}">
-        <i class="fas fa-sign-out-alt"></i> Logout
-      </a>
+      <form action="{% url 'logout' %}" method="post" class="d-inline">
+        {% csrf_token %}
+        <button type="submit" class="sidebar-link" style="background: none; border: none; color: inherit; padding: 0;">
+          <i class="fas fa-sign-out-alt"></i> Logout
+        </button>
+      </form>
     {% else %}
       <a class="sidebar-link" href="{% url 'login' %}">Login</a>
     {% endif %}
